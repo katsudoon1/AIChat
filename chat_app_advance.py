@@ -28,7 +28,7 @@ def select_model():
     # 初期値は0.0、刻み幅は0.1とする
     temperature = st.sidebar.slider("Temperature:", min_value=0.0, max_value=2.0, value=0.0, step=0.01)
    
-    return ChatOpenAI(temperature=0, model_name=model_name)
+    return ChatOpenAI(temperature=temperature, model_name=model_name)
 
 def init_messages():
     clear_button = st.sidebar.button("Clear Conversation", key="clear")
