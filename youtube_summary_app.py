@@ -11,7 +11,7 @@ def init_page():
         page_title="Youtube要約マシーン",
         page_icon="🤗"
     )
-    st.header("Youtube Summarizer 🤗")
+    st.header("Youtube要約マシーン")
     st.sidebar.title("Options")
     st.session_state.costs = []
 
