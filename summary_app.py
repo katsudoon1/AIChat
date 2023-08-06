@@ -66,13 +66,17 @@ def init_messages():
         st.session_state.costs = []
 
 def select_model():
-    model = st.sidebar.radio("Choose a model:", ("GPT-3.5", "GPT-4"))
+    model = st.sidebar.radio("Choose a model:", ("GPT-3.5", "GPT-3.5-16k"))
     if model == "GPT-3.5":
-        model_name = "gpt-3.5-turbo"
+        model_name = "gpt-3.5-turbo-0613"
     else:
-        model_name = "gpt-4"
+        model_name = "gpt-3.5-turbo-16k-0613"
 
-    return ChatOpenAI(temperature=0, model_name=model_name)
+    # サイドバーにスライダーを追加し、temperatureを0から2までの範囲で選択可能にする
+    # 初期値は0.0、刻み幅は0.1とする
+    temperature = st.sidebar.slider("Temperature:", min_value=0.0, max_value=2.0, value=0.0, step=0.01)
+   
+    return ChatOpenAI(temperature=temperature, model_name=model_name)
 
 def get_url_input():
     url = st.text_input("URL: ", key="input")
