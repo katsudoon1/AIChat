@@ -8,7 +8,7 @@ from langchain.document_loaders import YoutubeLoader
 
 def init_page():
     st.set_page_config(
-        page_title="Youtube Summarizer",
+        page_title="Youtube要約マシーン",
         page_icon="🤗"
     )
     st.header("Youtube Summarizer 🤗")
